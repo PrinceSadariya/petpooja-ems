@@ -90,10 +90,10 @@ export default function useEmployeeForm({ id }) {
 		// handle image parameter
 		if (data.newPhoto instanceof File) {
 			formData.append("empPhoto", data.newPhoto);
-		} else if (data.newPhoto === null) {
+		} else if (data.newPhoto === null && data.id) {
 			// if null that means removed photo
 			formData.append("oldPhoto", "");
-		} else {
+		} else if (data.id) {
 			formData.append("oldPhoto", data.oldPhoto);
 		}
 

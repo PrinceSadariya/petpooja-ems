@@ -32,7 +32,9 @@ const employeeGet = async ({
                         e.photo AS photo
                     FROM employee e
                     LEFT JOIN department d ON d.id=e.department_id 
-                    WHERE e.name LIKE ? AND e.status = ? LIMIT ? OFFSET ?`;
+                    WHERE e.name LIKE ? AND e.status = ? 
+					ORDER BY name
+					LIMIT ? OFFSET ?`;
 	const [rows, fields] = await pool
 		.promise()
 		.query(query, [searchQuery, status, pageSize, offset]);
@@ -164,7 +166,7 @@ const employeeUpdate = async ({
 				countResult1[0].photo
 			),
 			(err) => {
-				console.log(err);
+				// console.log(err);
 			}
 		);
 	}
@@ -218,7 +220,7 @@ const employeeDeleteById = async ({ id }) => {
 				countResult[0].photo
 			),
 			(err) => {
-				console.log(err);
+				// console.log(err);
 			}
 		);
 	}

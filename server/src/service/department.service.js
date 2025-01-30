@@ -17,7 +17,7 @@ const departmentGet = async ({
 	const [rows, fields] = await pool
 		.promise()
 		.query(
-			"SELECT * FROM department WHERE name LIKE ? AND status = ? LIMIT ? OFFSET ?",
+			"SELECT * FROM department WHERE name LIKE ? AND status = ? ORDER BY name LIMIT ? OFFSET ?",
 			[searchQuery, status, pageSize, offset]
 		);
 
@@ -62,7 +62,9 @@ const departmentGetById = async ({ id }) => {
 const departmentGetAll = async () => {
 	const [rows] = await pool
 		.promise()
-		.query("SELECT id,name FROM department WHERE status=1");
+		.query(
+			"SELECT id,name FROM department WHERE status=1 ORDER BY name ASC"
+		);
 	return rows;
 };
 

@@ -60,9 +60,21 @@ export default function EmployeeForm() {
 						/>
 						<FormInput
 							{...register("dob", {
-								required: "Date of birth can not be empty",
+								required: "Date of birth cannot be empty",
+								validate: {
+									maxDate: (value) => {
+										const today = new Date()
+											.toISOString()
+											.split("T")[0];
+										if (value > today) {
+											return "Date of birth cannot be in the future";
+										}
+										return true;
+									},
+								},
 							})}
 							type="date"
+							max={new Date().toISOString().split("T")[0]}
 							label="Date of Birth"
 							id="dob"
 							placeholder="Enter Date of Birth"
