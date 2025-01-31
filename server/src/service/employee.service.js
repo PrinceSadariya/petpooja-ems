@@ -208,7 +208,7 @@ const employeeDeleteById = async ({ id }) => {
 
 	const totalCount = countResult[0].total;
 	if (!totalCount) {
-		throw new ApiError(HTTP_STATUS.NOT_FOUND, "Department not found");
+		throw new ApiError(HTTP_STATUS.NOT_FOUND, "Employee not found");
 	}
 
 	// remove employee photo
