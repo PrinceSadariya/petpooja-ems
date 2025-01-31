@@ -41,6 +41,12 @@ To set up the database locally, follow these steps:
 
 ## Installing Dependencies for Both Projects
 
+First run this command to install root folder's dependency:
+
+```bash
+npm install
+```
+
 To install dependencies for both the **server** and **client** projects, run the following command from the **main project folder**:
 
 ```bash
