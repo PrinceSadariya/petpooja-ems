@@ -104,7 +104,7 @@ const employeeDeleteById = asyncHandler(async (req, res) => {
 	});
 	return res
 		.status(HTTP_STATUS.OK)
-		.json(new ApiResponse(department, "Employee deleted", HTTP_STATUS.OK));
+		.json(new ApiResponse(emp, "Employee deleted", HTTP_STATUS.OK));
 });
 
 const employeeController = {

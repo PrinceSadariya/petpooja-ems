@@ -41,11 +41,8 @@ router.post(
 
 /**
  * request for delete an employee
- * POST : "/employee/delete/:id"
+ * DELETE : "/employee/delete/:id"
  */
-router.post(
-	"/delete/:id",
-	employeeController.employeeDeleteById
-);
+router.delete("/delete/:id", employeeController.employeeDeleteById);
 
 module.exports = router;
